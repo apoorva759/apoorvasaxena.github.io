@@ -1,0 +1,349 @@
+<<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual CV | Apoorva Saxena (Full Screen)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-font: 'Poppins', sans-serif;
+            --dark-color: #342b3f; 
+            --accent-color: #007bff; 
+            --highlight-color: #5d92ff; 
+            --paper-color: #ffffff; 
+            --sidebar-color: #f7f7f7; 
+            --text-color: #343a40; 
+            --border-color: #e9ecef;
+            --text-muted: #6c757d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--primary-font);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #e6e6e6; 
+            min-height: 100vh;
+        }
+
+        .visual-cv-wrapper {
+            max-width: 1400px; 
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cv-header {
+            background-color: var(--dark-color);
+            color: #fff;
+            padding: 40px 60px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 25px; 
+            flex-grow: 1;
+        }
+        
+        .profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--highlight-color);
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 3em; 
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            color: #d1d1d1;
+            margin-top: 10px;
+        }
+
+        .contact-block {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.9em; 
+            gap: 8px;
+            align-items: flex-end; 
+        }
+
+        .contact-item i {
+            color: var(--highlight-color);
+            margin-right: 8px;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--highlight-color);
+        }
+
+        .main-content-grid {
+            display: flex;
+            flex-direction: row;
+            background-color: var(--paper-color);
+        }
+
+        .left-column {
+            flex: 1;
+            padding: 40px 30px; 
+            background-color: var(--sidebar-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .right-column {
+            flex: 2.5;
+            padding: 40px 60px; 
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--dark-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tags span {
+            background-color: #fff;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .job-entry {
+            margin-bottom: 25px;
+        }
+
+        .job-entry h3 {
+            color: var(--dark-color);
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .job-entry .date {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .project-showcase {
+            background-color: #ffffff; 
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
+            margin-bottom: 25px;
+        }
+
+        .project-summary p {
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .link-group {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .case-study-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: 0.3s;
+        }
+
+        .case-study-link:hover {
+            color: var(--dark-color);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .main-content-grid { flex-direction: column; }
+            .cv-header { flex-direction: column; text-align: center; gap: 20px; }
+            .header-left { flex-direction: column; }
+            .contact-block { align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="visual-cv-wrapper">
+
+        <header class="cv-header">
+            <div class="header-left">
+                <img class="profile" alt="Apoorva Photo" src="APOORVA.jpg"> 
+                <div class="header-main">
+                    <h1 class="name">APOORVA SAXENA</h1>
+                    <p class="tagline">UI/UX Designer & Frontend Developer | B.Tech Mathematics & Computing</p>
+                </div>
+            </div>
+            
+            <aside class="contact-block">
+                <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:apoorva092005@gmail.com">apoorva092005@gmail.com</a></div>
+                <div class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+918120063827">+91 81200 63827</a></div>
+                <div class="contact-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918120063827">WhatsApp Chat</a></div>
+                <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/apoorva-saxena-592631327">LinkedIn/ApoorvaSaxena</a></div>
+            </aside>
+        </header>
+
+        <div class="main-content-grid">
+
+            <div class="left-column">
+                <section class="section summary">
+                    <h2>Profile Summary</h2>
+                    <p>Highly motivated second-year student blending strong analytical skills from a Mathematics and Computing background with practical expertise in UI/UX design and Frontend Development. Actively leveraging technical knowledge (DSA, HTML, CSS) and design principles to deliver engaging solutions.</p>
+                </section>
+
+                <section class="section skills">
+                    <h2>Core Toolkit</h2>
+                    <div class="skill-tags">
+                        <span>UI/UX Design</span>
+                        <span>Frontend Development</span>
+                        <span>Figma (Advanced)</span>
+                        <span>Adobe XD</span>
+                        <span>Poster Design</span>
+                        <span>HTML5 & CSS3</span>
+                        <span>DSA (C++)</span>
+                        <span>Semantic HTML</span>
+                        <span>Accessibility (WCAG)</span>
+                    </div>
+                </section>
+
+                <section class="section education">
+                    <h2>Education</h2>
+                    <p><strong>B.Tech. Mathematics and Computing</strong><br>MITS Gwalior (2nd Year)</p>
+                    <br>
+                    <p><strong>Class 12 & 10 (CBSE)</strong><br>Nirmala Convent Higher Secondary School</p>
+                </section>
+
+                <section class="section hobbies">
+                    <h2>Discipline</h2>
+                    <ul class="hobbies-list">
+                        <li><i class="fas fa-bolt"></i> Taekwondo</li>
+                        <li><i class="fas fa-chess-knight"></i> Strategic Chess</li>
+                        <li><i class="fas fa-swimmer"></i> Swimming</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="right-column">
+                
+                <section class="section experience">
+                    <h2>Professional Experience</h2>
+
+                    <div class="job-entry">
+                        <h3>Freelance UI/UX Designer & Frontend Developer</h3>
+                        <p class="date">College Duration – Present | Fiverr & Direct Clients</p>
+                        <ul>
+                            <li><strong>Design Delivery:</strong> Successfully completed freelance projects involving UI/UX design, template creation (Figma/Adobe XD), and graphic poster design for various clients.</li>
+                            <li><strong>Frontend Implementation:</strong> Developed responsive and functional frontend websites, utilizing HTML and CSS to translate design concepts into live code.</li>
+                            <li><strong>Freelance Success:</strong> Delivered custom website templates and promotional poster designs on Fiverr, translating client requirements into user-centric solutions.</li>
+                            <li><strong>Logical Structure:</strong> Applied foundational knowledge of DSA to ensure clean, logical, and performant code structure in all web development projects.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-entry">
+                        <h3>Design Intern</h3>
+                        <p class="date">Design for Verse</p>
+                        <ul>
+                            <li>Completed a structured internship contributing to live design projects.</li>
+                            <li>Applied UI/UX principles and frontend implementation practices in collaborative design workflows.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section project-showcase">
+                    <h2>Featured Project: UI/UX Template System</h2>
+                    <div class="project-summary">
+                        <p><strong>Focus:</strong> Designed and implemented a scalable UI/UX template system in Figma, tailored for diverse industry use cases, ensuring modularity and reusability.</p>
+                        <p><strong>Skills Utilized:</strong> Developed component libraries, established style guides, and conducted accessibility audits to align with <strong>WCAG standards</strong>.</p>
+                        <div class="link-group">
+                            <a href="https://app.visily.ai/projects/0cbd73bf-5c42-4fb4-bc2c-9a4086a3de60/boards/2155466" class="case-study-link" target="_blank">Visily Board <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://gemini.google.com/share/60d538f568ff" class="case-study-link" target="_blank">Case Study <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://www.canva.com/design/DAGkVchMHPw/watch" class="case-study-link" target="_blank">Canva Presentation <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section project-showcase">
+                    <h2>Featured Project: E-commerce Conversion</h2>
+                    <div class="project-summary">
+                        <p><strong>Focus:</strong> Engineered a fully responsive e‑commerce website, ensuring seamless user experience across devices and platforms.</p>
+                        <p><strong>Skills Utilized:</strong> Applied semantic HTML for structured content, implemented modular CSS for scalable styling, and conducted cross‑browser compatibility testing.</p>
+                        <br>
+                        <p><strong>Additional Interest Project:</strong> Developed a high-fidelity replica of the <strong>Dove brand</strong> front page, showcasing proficiency in translating established brand aesthetics into functional, accessible web interfaces.</p>
+                        <div class="link-group">
+                            <a href="https://khushiigoyal.github.io/dove/" class="case-study-link" target="_blank">Visit Live Site <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
